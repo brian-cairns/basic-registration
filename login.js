@@ -24,7 +24,7 @@ async function authorizeClient(user, password) {
       console.log(response)
       if (response.status == 200) {
       console.log('good')
-      showSuccess()
+      showSuccess(user)
       } else {
         showError()
       }
@@ -32,10 +32,11 @@ async function authorizeClient(user, password) {
     .catch((err) => showError(err))
 }
 
-function showSuccess() {
-    document.getElementById('errorMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'
-    document.getElementById('errorMessage').style.display = "block";
-    
+function showSuccess(user) {
+  document.getElementById('errorMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'
+  document.getElementById('errorMessage').style.display = "block";
+  sessionStorage.setItem('userName', user)
+  setTimeout(() => {location.href('/client-portal')}, 2000)
 }
 
 function showError() {
