@@ -10,8 +10,8 @@ registration.addEventListener('click', () => {
 })
 
 function showError() {
-    document.getElementById('errorMessage').style.display = inline;
-    document.querySelector('input#registrationPassword') = '';
+  document.getElementById('errorMessage').style.display = inline;
+  document.querySelector('input#registrationPassword') = '';
 	document.querySelector('input#passwordCheck') = '';
     
 }
@@ -42,10 +42,13 @@ async function registerUser(user, password) {
 
 
 function showSuccess() {
-    document.getElementById('returnMessage').innerHTML = 'You have been successfully registered & will be redirected to client intake'
+  document.getElementById('returnMessage').innerHTML = 'You have been successfully registered & will be redirected to client intake'
+  setTimeout (() => {location.href('./forms/new-client-intake-form')}, 2000)
+  
 }
 
 function showError(err) {
     console.error
     document.getElementById('returnMessage').innerHTML = `An error occurred when submitting this form, which was ${err}. Please contact the administrator for help.`
 }
+
