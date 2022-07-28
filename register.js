@@ -6,11 +6,12 @@ registration.addEventListener('click', () => {
     console.log(passwordCheck)
     let userName = document.querySelector('input#registrationUserName').value
     console.log(userName)
-    password === passwordCheck ? registerUser(userName, password) : showError()
+  password === passwordCheck ? registerUser(userName, password) : showError()
+  document.getElementById('waitingRegister').style.display = 'block'
 })
 
 function showError() {
-  document.getElementById('errorMessage').style.display = inline;
+  document.getElementById('errorMessage').style.display = 'block';
   document.querySelector('input#registrationPassword') = '';
 	document.querySelector('input#passwordCheck') = '';
     
@@ -42,8 +43,9 @@ async function registerUser(user, password) {
 
 
 function showSuccess() {
+  document.getElementById('waitingRegister').style.display = 'inline'
   document.getElementById('returnMessage').innerHTML = 'You have been successfully registered & will be redirected to client intake'
-  setTimeout (() => {location.href('./forms/new-client-intake-form')}, 2000)
+  setTimeout (() => {location.href='./forms/pffm-inc-contact-information'}, 2000)
   
 }
 
