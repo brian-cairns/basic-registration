@@ -38,7 +38,7 @@ function showSuccess(user) {
   document.getElementById('returnMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'
   document.getElementById('returnMessage').style.display = "block";
   sessionStorage.setItem('userName', user)
-  setTimeout(() => {location.href('/client-portal')}, 2000)
+  setTimeout(() => {location.href='./client-portal'}, 2000)
 }
 
 function showError() {
