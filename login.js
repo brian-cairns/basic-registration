@@ -4,6 +4,7 @@ login.addEventListener('click', () => {
     let password = document.querySelector('input#clientPassword').value;
     console.log(userName, password)
     authorizeClient(userName, password)
+    showWaiting()
 })
 
 async function authorizeClient(user, password) {
@@ -33,13 +34,21 @@ async function authorizeClient(user, password) {
 }
 
 function showSuccess(user) {
-  document.getElementById('errorMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'
-  document.getElementById('errorMessage').style.display = "block";
+  document.getElementById('waitingLogin').style.display = 'none';
+  document.getElementById('returnMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'
+  document.getElementById('returnMessage').style.display = "block";
   sessionStorage.setItem('userName', user)
   setTimeout(() => {location.href('/client-portal')}, 2000)
 }
 
 function showError() {
-    document.getElementById('errorMessage').innerHTML = `Your password and username combination`
-    document.getElementById('errorMessage').style.display = "block";
+  document.getElementById('waitingLogin').style.display = 'none';
+  document.getElementById('returnMessage').innerHTML = `Your password and username combination are not valid`
+  document.getElementById('returnMessage').style.display = "block";
+  document.getElementById('resetPassword').style.display = 'block';
+}
+
+function showWaiting() {
+  document.getElementById('waitingLogin').style.display = 'block';
+  document.getElementById('resetPassword').style.display = 'none';
 }
