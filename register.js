@@ -32,7 +32,7 @@ async function registerUser(user, password) {
     body: JSON.stringify(document)
   })
     .then((response) => {
-      if (response.status == 200) {
+      if (response.status != 500 || response.status != 403 || response.status != 404) {
       showSuccess()
       } else {
         showError(response.body)
@@ -43,9 +43,10 @@ async function registerUser(user, password) {
 
 
 function showSuccess() {
-  document.getElementById('waitingRegister').style.display = 'inline'
+  document.getElementById('waitingRegister').style.display = 'none'
   document.getElementById('returnMessage').innerHTML = 'You have been successfully registered & will be redirected to client intake'
-  setTimeout (() => {location.href='./forms/pffm-inc-contact-information'}, 2000)
+  document.getElementById('returnMessage').style.display = 'block'
+  setTimeout(() => { location.href = './forms/pffm-inc-contact-information' }, 2000)
   
 }
 
