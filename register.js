@@ -12,6 +12,7 @@ registration.addEventListener('click', () => {
 
 function showError() {
   document.getElementById('errorMessage').style.display = 'block';
+  document.getElementById('waitingRegister').style.display = 'none';
   document.querySelector('input#registrationPassword') = '';
 	document.querySelector('input#passwordCheck') = '';
     
@@ -36,7 +37,7 @@ async function registerUser(user, password) {
       if (response.status != 500 || response.status != 403 || response.status != 404) {
       showSuccess()
       } else {
-        showError(response.body)
+        showError(response.statusText)
       }
     })
     .catch((err) => showError(err))
@@ -54,5 +55,6 @@ function showSuccess() {
 function showError(err) {
     console.error
     document.getElementById('returnMessage').innerHTML = `An error occurred when submitting this form, which was ${err}. Please contact the administrator for help.`
+  document.getElementById('returnMessage').style.display = 'block';
 }
 
