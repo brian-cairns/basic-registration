@@ -32,6 +32,7 @@ async function registerUser(user, password) {
     body: JSON.stringify(document)
   })
     .then((response) => {
+      console.log(response)
       if (response.status != 500 || response.status != 403 || response.status != 404) {
       showSuccess()
       } else {
