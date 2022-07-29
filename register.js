@@ -48,7 +48,7 @@ function showSuccess() {
   document.getElementById('waitingRegister').style.display = 'none'
   document.getElementById('returnMessage').innerHTML = 'You have been successfully registered & will be redirected to client intake'
   document.getElementById('returnMessage').style.display = 'block'
-  setTimeout(() => { location.href = './forms/pffm-inc-contact-information' }, 2000)
+  setTimeout(() => { location.href = './forms/pffm-inc-contact-information' }, 4000)
   
 }
 
