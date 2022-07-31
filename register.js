@@ -35,16 +35,16 @@ async function registerUser(user, password) {
     .then((response) => {
       console.log(response)
       if (response.status != 500 || response.status != 403 || response.status != 404) {
-      showSuccess()
+      showRegistrationSuccess()
       } else {
         showError(response.statusText)
       }
     })
-    .catch((err) => showError(err))
+    .catch((err) => showRegError(err))
 }
 
 
-function showSuccess() {
+function showRegistrationSuccess() {
   document.getElementById('waitingRegister').style.display = 'none'
   document.getElementById('returnMessage').innerHTML = 'You have been successfully registered & will be redirected to client intake'
   document.getElementById('returnMessage').style.display = 'block'
@@ -52,7 +52,7 @@ function showSuccess() {
   
 }
 
-function showError(err) {
+function showRegError(err) {
     console.error
     document.getElementById('returnMessage').innerHTML = `An error occurred when submitting this form, which was ${err}. Please contact the administrator for help.`
     document.getElementById('returnMessage').style.display = 'block'
