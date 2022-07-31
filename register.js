@@ -23,7 +23,7 @@ async function registerUser(user, password) {
     'userName': user,
     'password': password
   }
-  console.log(document)
+  console.log(`I am the document: ${document}`)
   fetch('https://pffm.azurewebsites.net/registration', {
     method: "POST",
     headers: {
