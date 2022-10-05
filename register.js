@@ -1,3 +1,12 @@
+let firstReg = document.getElementById('firstRegisterButton')
+
+firstReg.addEventListener('click', () => {
+	document.getElementById('loginInputs').style.display = 'none'
+  document.getElementById('loginSection').style.display = 'none'
+  document.getElementById('registrationSection').style.display = 'block'
+  })
+
+
 let registration = document.getElementById('registration')
 registration.addEventListener('click', () => {
     let password = document.querySelector('input#registrationPassword').value
