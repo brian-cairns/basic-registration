@@ -1,4 +1,5 @@
-let login = document.getElementById('signIn')
+llet login = document.getElementById('login')
+
 login.addEventListener('click', () => {
     let userName = document.querySelector('input#clientUserName').value;
     let password = document.querySelector('input#clientPassword').value;
@@ -34,7 +35,7 @@ async function authorizeClient(user, password) {
 }
 
 function showSuccess(user) {
-  document.getElementById('waitingLogin').style.display = 'none';
+  document.getElementById('waitingRegister').style.display = 'none';
   document.getElementById('returnMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'
   document.getElementById('returnMessage').style.display = "block";
   sessionStorage.setItem('userName', user)
@@ -42,7 +43,7 @@ function showSuccess(user) {
 }
 
 function showError() {
-  document.getElementById('waitingLogin').style.display = 'none';
+  document.getElementById('waitingRegister').style.display = 'none';
   document.getElementById('returnMessage').innerHTML = `Your password and username combination are not valid`
   document.getElementById('returnMessage').style.display = "block";
   document.getElementById('resetPassword').style.display = 'block';
