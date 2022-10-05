@@ -1,4 +1,4 @@
-llet login = document.getElementById('login')
+let login = document.getElementById('login')
 
 login.addEventListener('click', () => {
     let userName = document.querySelector('input#clientUserName').value;
