@@ -18,22 +18,23 @@ async function authorizeClient(user, password) {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
-      "Access-Control-Allow-Origin" : "*"
+      "Access-Control-Allow-Origin": "*"
     },
     body: JSON.stringify(document)
   })
-    .then((response) => {
-      console.log(response)
-      if (response.status == 200) {
-      console.log('good')
-      showSuccess(user)
+    .then((response) => response.json)
+    .then((data) => {
+      console.log(data)
+      if (response.status != 500 || response.status != 403 || response.status != 404) {
+        showRegistrationSuccess()
       } else {
-        showError()
+        showError(response.statusText)
       }
+      sessionStorage.setItem('OAuthKey', data.key)
     })
-    .catch((err) => showError(err))
+    .catch((err) => showRegError(err))
 }
-
+  
 function showSuccess(user) {
   document.getElementById('waitingRegister').style.display = 'none';
   document.getElementById('returnMessage').innerHTML = 'You have been successfully logged in. Routing you to your portal page'

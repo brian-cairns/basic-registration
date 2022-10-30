@@ -41,13 +41,14 @@ async function registerUser(user, password) {
     },
     body: JSON.stringify(document)
   })
-    .then((response) => {
-      console.log(response)
+    .then((response) => response.json)
+    .then((data) => {
+      console.log(data)
       if (response.status != 500 || response.status != 403 || response.status != 404) {
-      showRegistrationSuccess()
-      } else {
+      showRegistrationSuccess()} else {
         showError(response.statusText)
       }
+      sessionStorage.setItem('OAuthKey', data.key)
     })
     .catch((err) => showRegError(err))
 }
